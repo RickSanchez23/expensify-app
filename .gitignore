@@ -4,3 +4,4 @@ node_modules/
 /public/bundle.js.map
 /public/styles.css
 /public/styles.css.map
+ package-lock.json
