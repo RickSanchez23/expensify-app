@@ -10,6 +10,9 @@ app.get('*' , (req ,res) => {
     res.sendFile(path.join(publicPath,'index.html'));
 })
 
-app.listen(port , () => {
-    console.log("Server is up!")
+const server =app.listen(port ,"127.0.0.1" , () => {
+
+    console.log('Express server http://' + server.address().address+":" +server.address().port);
+
+
 });
