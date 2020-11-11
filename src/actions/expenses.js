@@ -12,6 +12,7 @@ export const addExpenseAsync = (expenseData) => {
         return database.ref('expenses')
             .push(expense)
             .then(ref => {
+                console.log("res from firebase" , ref)
                 dispatch(addExpense({
                     ...expense,
                     id: ref.key

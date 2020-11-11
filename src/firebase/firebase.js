@@ -1,7 +1,6 @@
 import * as firebase from "firebase";
-import moment from "moment";
 
-const firebaseConfig = {
+/*const firebaseConfig = {
     apiKey: "AIzaSyA5C69Pgj5xdFqbZZRUz3OfiQmiKFoxn4I",
     authDomain: "expensify-e60d9.firebaseapp.com",
     databaseURL: "https://expensify-e60d9.firebaseio.com",
@@ -9,7 +8,37 @@ const firebaseConfig = {
     storageBucket: "expensify-e60d9.appspot.com",
     messagingSenderId: "303129891555",
     appId: "1:303129891555:web:7de76d22d01223b9ac6bd6"
+};*/
+
+const firebaseConfig = {
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID
 };
+
+
+/*
+FIREBASE_API_KEY AIzaSyA5C69Pgj5xdFqbZZRUz3OfiQmiKFoxn4I,
+app.js:12 FIREBASE_AUTH_DOMAIN expensify-e60d9.firebaseapp.com,
+app.js:13 FIREBASE_DATABASE_URL https://expensify-e60d9.firebaseio.com,
+app.js:14 FIREBASE_PROJECT_ID expensify-e60d9,
+app.js:15 FIREBASE_STORAGE_BUCKET expensify-e60d9.appspot.com,
+app.js:16 FIREBASE_MESSAGING_SENDER_ID 303129891555,
+app.js:17 FIREBASE_APP_ID 1:303129891555:web:7de76d22d01223b9ac6bd6
+
+FIREBASE_API_KEY AIzaSyA5C69Pgj5xdFqbZZRUz3OfiQmiKFoxn4I,
+    app.js:12 FIREBASE_AUTH_DOMAIN expensify-e60d9.firebaseapp.com,
+    app.js:13 FIREBASE_DATABASE_URL https://expensify-e60d9.firebaseio.com,
+    app.js:14 FIREBASE_PROJECT_ID expensify-e60d9,
+    app.js:15 FIREBASE_STORAGE_BUCKET expensify-e60d9.appspot.com,
+    app.js:16 FIREBASE_MESSAGING_SENDER_ID 303129891555,
+
+*/
+
 
 firebase.initializeApp(firebaseConfig);
 
