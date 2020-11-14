@@ -1,7 +1,8 @@
 import expenses from "../fixtures/expenses";
 import expensesReducers from "../../reducers/expenses";
-import { addExpense, editExpense } from "../../actions/expenses";
+import {addExpense, editExpense, setExpenses} from "../../actions/expenses";
 import moment from "moment";
+import expensesReducer from "../../reducers/expenses";
 
 test("should setup first initial", () => {
   const state = expensesReducers(undefined, { type: "@@INIT" });
@@ -61,3 +62,11 @@ test("should not edit expense if id not found", () => {
   );
   expect(newExpenses).toEqual(expenses);
 });
+
+test("should set expense" , () => {
+
+  const action = setExpenses(expenses);
+  const state = expensesReducer([expenses[0]] , action);
+  expect(state).toEqual(expenses);
+
+})

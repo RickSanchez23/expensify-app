@@ -12,13 +12,11 @@ export const addExpenseAsync = (expenseData) => {
         return database.ref('expenses')
             .push(expense)
             .then(ref => {
-                console.log("res from firebase" , ref)
                 dispatch(addExpense({
                     ...expense,
                     id: ref.key
                 }));
             }).catch(err => {
-                console.log("error" , err)
             });
     }
 }
@@ -33,3 +31,28 @@ export const editExpense = (itemId, updates) => ({
     itemId,
     updates,
 });
+
+export const setExpenses = (expenses) => {
+    return {
+        type: 'SET_EXPENSES',
+        expenses
+
+    }
+}
+
+export const setExpensesAsync = () => {
+
+    return (dispatch) => {
+        return database.ref('expenses').once('value').then(snapshot => {
+            const expensesList = [];
+            snapshot.forEach(snapshotChild => {
+                expensesList.push({
+                    id : snapshotChild.key ,
+                    ...snapshotChild.val()
+                });
+            });
+            dispatch(setExpenses(expensesList));
+        });
+
+    }
+}

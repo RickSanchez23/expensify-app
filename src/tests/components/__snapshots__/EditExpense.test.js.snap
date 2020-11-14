@@ -11,7 +11,7 @@ exports[`should edit expense render correctly 1`] = `
         "amount": 310,
         "createAt": -345600000,
         "description": "Rent",
-        "id": 1,
+        "id": "1",
       }
     }
     onSubmit={[Function]}
